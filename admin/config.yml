@@ -1,12 +1,24 @@
 backend:
-  name: github
-  repo: ambikaraut-netizen/LearnNepal
-media_folder: "images"
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
 collections:
   - name: "pages"
     label: "Pages"
-    folder: "/"
+    folder: "content/pages"
     create: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "notes"
+    label: "Notes"
+    folder: "content/notes"
+    create: true
+    fields:
+      - { label: "Subject", name: "subject", widget: "string" }
+      - { label: "Class", name: "class", widget: "string" }
+      - { label: "Content", name: "body", widget: "markdown" }
