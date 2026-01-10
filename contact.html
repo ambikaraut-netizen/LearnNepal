@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | LearnNepal</title>
+    <meta name="description" content="Get in touch with LearnNepal. We'd love to hear your feedback, questions, or suggestions.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="LearnNepal" style="height: 40px; width: auto;">
+                LearnNepal<span>.</span>
+            </a>
+
+            <button class="mobile-toggle" aria-label="Toggle Navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Class 11</a>
+                    <div class="dropdown-menu">
+                        <a href="pages/class-11/english.html" class="dropdown-item">English</a>
+                        <a href="pages/class-11/nepali.html" class="dropdown-item">Nepali</a>
+                        <a href="pages/class-11/computer/c11_computer_syllabus.html" class="dropdown-item">Computer Science</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#" class="nav-link">Class 12</a>
+                    <div class="dropdown-menu">
+                        <a href="pages/class-12/english/c12_english_syllabus.html" class="dropdown-item">English</a>
+                        <a href="pages/class-12/nepali.html" class="dropdown-item">Nepali</a>
+                        <a href="pages/class-12/computer/c12_computer_syllabus.html" class="dropdown-item">Computer Science</a>
+                    </div>
+                </div>
+
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="section" style="padding-top: 8rem; padding-bottom: 2rem;">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <span class="badge animate-fade-up">Get in Touch</span>
+                    <h1 class="animate-fade-up delay-100" style="margin-top: var(--spacing-sm); font-size: 3rem;">
+                        We'd Love to <span style="color: var(--color-accent);">Hear From You</span>
+                    </h1>
+                    <p class="text-lead animate-fade-up delay-200" style="margin-top: 1.5rem;">
+                        Have a question about a topic? Spotted an error in our notes? Or just want to say hi? clearDrop us a message below.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form & Info -->
+        <section class="section bg-alt">
+            <div class="container">
+                <div class="grid-2 stagger-grid" style="align-items: start; gap: 4rem;">
+                    
+                    <!-- Contact Form -->
+                    <div style="background: white; padding: 2.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+                        <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Send a Message</h2>
+                        <form action="#" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div>
+                                <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">Full Name</label>
+                                <input type="text" id="name" placeholder="John Doe" style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.95rem;">
+                            </div>
+                            <div>
+                                <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">Email Address</label>
+                                <input type="email" id="email" placeholder="john@example.com" style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.95rem;">
+                            </div>
+                            <div>
+                                <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem;">Message</label>
+                                <textarea id="message" rows="5" placeholder="How can we help you?" style="width: 100%; padding: 0.8rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div>
+                        <h2 style="font-size: 2rem; margin-bottom: 2rem;">Contact Information</h2>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 2rem;">
+                            <div class="card" style="flex-direction: row; align-items: flex-start; gap: 1.5rem;">
+                                <div style="color: var(--color-accent);">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0 0 0.5rem 0;">Email Us</h4>
+                                    <p style="margin: 0; color: var(--color-text-muted);">hello@learnnepal.com</p>
+                                    <p style="margin: 0; color: var(--color-text-muted);">support@learnnepal.com</p>
+                                </div>
+                            </div>
+
+                            <div class="card" style="flex-direction: row; align-items: flex-start; gap: 1.5rem;">
+                                <div style="color: var(--color-accent);">
+                                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0 0 0.5rem 0;">Visit Us</h4>
+                                    <p style="margin: 0; color: var(--color-text-muted);">Sorry, We do not have a physical office.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="card" style="flex-direction: row; align-items: flex-start; gap: 1.5rem;">
+                                <div style="color: var(--color-accent);">
+                                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0 0 0.5rem 0;">Collaborate</h4>
+                                    <p style="margin: 0; color: var(--color-text-muted);">Are you a teacher? Contribute notes and help students nationwide.</p>
+                                </div>
+                            </div>
+
+                            <a href="https://www.youtube.com/@OfficialLearnNepal" target="_blank" class="card" style="flex-direction: row; align-items: flex-start; gap: 1.5rem; text-decoration: none; color: inherit; transition: transform 0.2s;">
+                                <div style="color: #FF0000;">
+                                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0 0 0.5rem 0;">Subscribe on YouTube</h4>
+                                    <p style="margin: 0; color: var(--color-text-muted);">Watch video tutorials and explanations on our official channel.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo"><img src="assets/images/logo.png" alt="LearnNepal" style="height: 32px; width: auto;"></a>
+                    <p>
+                        Empowering NEB students with high-quality, structured, and accessible digital notes.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Class 11</h4>
+                    <ul class="footer-links">
+                        <li><a href="pages/class-11/english.html">English</a></li>
+                        <li><a href="pages/class-11/nepali.html">Nepali</a></li>
+                        <li><a href="pages/class-11/computer/c11_computer_syllabus.html">Computer Science</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Class 12</h4>
+                    <ul class="footer-links">
+                        <li><a href="pages/class-12/english/c12_english_syllabus.html">English</a></li>
+                        <li><a href="pages/class-12/nepali.html">Nepali</a></li>
+                        <li><a href="pages/class-12/computer/c12_computer_syllabus.html">Computer Science</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="https://www.youtube.com/@OfficialLearnNepal" target="_blank">YouTube Channel</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 LearnNepal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/app.js"></script>
+</body>
+</html>
