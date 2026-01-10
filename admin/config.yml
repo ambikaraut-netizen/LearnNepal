@@ -2,23 +2,26 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
 
 collections:
   - name: "pages"
     label: "Pages"
-    folder: "content/pages"
+    folder: "pages"
     create: true
+    slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
 
-  - name: "notes"
-    label: "Notes"
-    folder: "content/notes"
-    create: true
-    fields:
-      - { label: "Subject", name: "subject", widget: "string" }
-      - { label: "Class", name: "class", widget: "string" }
-      - { label: "Content", name: "body", widget: "markdown" }
+  - name: "home"
+    label: "Home Page"
+    files:
+      - label: "Hero Section"
+        name: "hero"
+        file: "index.html"
+        fields:
+          - { label: "Badge", name: "hero.badge", widget: "string" }
+          - { label: "Title", name: "hero.title", widget: "string" }
+          - { label: "Subtitle", name: "hero.subtitle", widget: "text" }
