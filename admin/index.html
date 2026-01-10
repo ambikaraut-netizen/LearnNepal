@@ -1,9 +1,22 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <title>Content Manager</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-</head>
-<body></body>
+  <head>
+    <meta charset="utf-8">
+    <title>LearnNepal CMS</title>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <script>
+      // Initialize Netlify Identity
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.init();
+        window.netlifyIdentity.on('login', user => {
+          // Load CMS only after login
+          CMS.init({ config: '/admin/config.yml' });
+        });
+        window.netlifyIdentity.on('logout', () => document.location.reload());
+      }
+    </script>
+  </body>
 </html>
