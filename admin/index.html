@@ -24,15 +24,25 @@
   </div>
 
   <script>
+    // Wait for Decap CMS to load
+    function initCMS() {
+      if (typeof CMS !== "undefined") {
+        CMS.init({ config: '/admin/config.yml' });
+      } else {
+        console.error("CMS not loaded yet. Retrying in 500ms...");
+        setTimeout(initCMS, 500);
+      }
+    }
+
     // Initialize Netlify Identity
     const identity = window.netlifyIdentity;
     if(identity){
       identity.init();
 
-      // Show CMS only after login
+      // When user logs in
       identity.on('login', user => {
-        CMS.init({ config: '/admin/config.yml' });
         document.getElementById('login').style.display = 'none';
+        initCMS(); // Only initialize CMS after login
       });
 
       identity.on('logout', () => location.reload());
@@ -42,10 +52,10 @@
         identity.open('login');
       });
 
-      // If already logged in
+      // If already logged in, init CMS immediately
       if(identity.currentUser()){
-        CMS.init({ config: '/admin/config.yml' });
         document.getElementById('login').style.display = 'none';
+        initCMS();
       }
     } else {
       document.body.innerHTML = "<h2>Netlify Identity not found!</h2>";
