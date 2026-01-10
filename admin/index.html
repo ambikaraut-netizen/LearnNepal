@@ -1,29 +1,54 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LearnNepal CMS</title>
+
+  <!-- Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <style>
+    body { font-family: sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; }
+    #login { text-align:center; }
+    button { padding: 0.5rem 1rem; font-size:1rem; cursor:pointer; }
+  </style>
 </head>
 <body>
-  <script>
-    if (window.netlifyIdentity) {
-      // Initialize Identity
-      window.netlifyIdentity.init();
+  <div id="login">
+    <h2>LearnNepal CMS Login</h2>
+    <button id="login-btn">Login with Netlify Identity</button>
+  </div>
 
-      // Load CMS when user logs in
-      window.netlifyIdentity.on('login', user => {
+  <script>
+    // Initialize Netlify Identity
+    const identity = window.netlifyIdentity;
+    if(identity){
+      identity.init();
+
+      // Show CMS only after login
+      identity.on('login', user => {
         CMS.init({ config: '/admin/config.yml' });
+        document.getElementById('login').style.display = 'none';
       });
 
-      // Reload on logout
-      window.netlifyIdentity.on('logout', () => document.location.reload());
+      identity.on('logout', () => location.reload());
 
-      // If already logged in, load CMS immediately
-      if (window.netlifyIdentity.currentUser()) {
+      // Attach login button
+      document.getElementById('login-btn').addEventListener('click', () => {
+        identity.open('login');
+      });
+
+      // If already logged in
+      if(identity.currentUser()){
         CMS.init({ config: '/admin/config.yml' });
+        document.getElementById('login').style.display = 'none';
       }
+    } else {
+      document.body.innerHTML = "<h2>Netlify Identity not found!</h2>";
     }
   </script>
 </body>
