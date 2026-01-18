@@ -1,61 +1,67 @@
-@import 'reset.css';
-@import 'variables.css';
-@import 'typography.css';
-@import 'layout.css';
-@import 'components.css';
-@import 'ads.css';
-@import 'animations.css';
+@import "reset.css";
+@import "variables.css";
+@import "typography.css";
+@import "layout.css";
+@import "components.css";
+@import "ads.css";
+@import "animations.css";
 
 /* Global Styles */
 .container {
-    width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
 }
 
 .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--radius-sm);
-    font-weight: 500;
-    transition: all var(--transition-fast);
-    cursor: pointer;
-    border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .btn-primary {
-    background-color: var(--color-primary);
-    color: white;
+  background-color: var(--color-primary);
+  color: white;
 }
 
 .btn-primary:hover {
-    background-color: var(--color-primary-light);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
+  background-color: var(--color-primary-light);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-outline {
-    background-color: transparent;
-    border-color: var(--color-primary);
-    color: var(--color-primary);
+  background-color: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .btn-outline:hover {
-    background-color: var(--color-primary);
-    color: white;
+  background-color: var(--color-primary);
+  color: white;
 }
 
 .btn-text {
-    padding: 0;
-    background: none;
-    color: var(--color-accent);
-    font-weight: 600;
+  padding: 0;
+  background: none;
+  color: var(--color-accent);
+  font-weight: 600;
 }
 
 .btn-text:hover {
-    color: var(--color-accent-hover);
-    text-decoration: underline;
+  color: var(--color-accent-hover);
+  text-decoration: underline;
 }

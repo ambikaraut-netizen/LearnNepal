@@ -68,12 +68,12 @@ function initMobileMenu() {
 }
 
 function initDropdownsForMobile() {
-    if (window.innerWidth > 768) return;
-
+    // Remove early return so listeners attach even if loaded on desktop then resized
     const dropdowns = document.querySelectorAll('.dropdown > .nav-link');
     
     dropdowns.forEach(trigger => {
         trigger.addEventListener('click', (e) => {
+            // Check width at the moment of click
             if (window.innerWidth <= 768) {
                 e.preventDefault();
                 const parent = trigger.parentElement;
