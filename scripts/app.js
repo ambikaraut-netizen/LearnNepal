@@ -8,7 +8,57 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initDropdownsForMobile();
     initSidebarAccordion();
+    initSidebarAccordion();
+    initProgressBar();
+    initBackToTop();
 });
+
+function initProgressBar() {
+    // Create Progress Bar Elements
+    const progressContainer = document.createElement('div');
+    progressContainer.className = 'progress-container';
+    
+    const progressBar = document.createElement('div');
+    progressBar.className = 'progress-bar';
+    progressContainer.appendChild(progressBar);
+    
+    document.body.prepend(progressContainer);
+    
+    // Update on Scroll
+    window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (scrollTop / scrollHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+    });
+}
+
+function initBackToTop() {
+    // Create Back to Top Button
+    const btn = document.createElement('button');
+    btn.className = 'back-to-top';
+    btn.ariaLabel = "Back to Top";
+    btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>`;
+    
+    document.body.appendChild(btn);
+    
+    // Show/Hide Logic
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+    });
+    
+    // Click to Scroll Top
+    btn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
 
 function initSidebarAccordion() {
     const sidebarGroups = document.querySelectorAll('.sidebar-group');

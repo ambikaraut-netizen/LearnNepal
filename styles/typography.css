@@ -61,3 +61,16 @@ p {
     display: block;
     margin-bottom: var(--spacing-xs);
 }
+
+/* Nepali Fonts */
+@font-face {
+    font-family: 'Rozha One';
+    src: url('../assets/fonts/RozhaOne-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+.nepali-text .chapter-title {
+    font-family: 'Rozha One', serif;
+}
