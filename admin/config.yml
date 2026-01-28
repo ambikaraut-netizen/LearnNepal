@@ -22,3 +22,17 @@ collections:
       - { label: "Subject", name: "subject", widget: "string" }
       - { label: "Class", name: "class", widget: "string" }
       - { label: "Content", name: "body", widget: "markdown" }
+
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "data/homepage.json"
+        fields:
+          - { label: "Hero Title", name: "hero_title", widget: "string" }
+          - {
+              label: "Hero Description",
+              name: "hero_description",
+              widget: "text",
+            }
