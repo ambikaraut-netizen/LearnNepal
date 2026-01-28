@@ -1,38 +1,18 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: main # or master, check your GitHub branch name
 
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
+media_folder: "images" # Where you store images in GitHub
+public_folder: "/images" # The path used in your HTML
 
 collections:
   - name: "pages"
     label: "Pages"
-    folder: "content/pages"
+    folder: "content/pages" # The folder we created in Step 1
     create: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Main Heading", name: "heading", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Featured Image", name: "image", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
-
-  - name: "notes"
-    label: "Notes"
-    folder: "content/notes"
-    create: true
-    fields:
-      - { label: "Subject", name: "subject", widget: "string" }
-      - { label: "Class", name: "class", widget: "string" }
-      - { label: "Content", name: "body", widget: "markdown" }
-
-  - name: "homepage"
-    label: "Homepage"
-    files:
-      - label: "Home Page"
-        name: "home"
-        file: "data/homepage.json"
-        fields:
-          - { label: "Hero Title", name: "hero_title", widget: "string" }
-          - {
-              label: "Hero Description",
-              name: "hero_description",
-              widget: "text",
-            }

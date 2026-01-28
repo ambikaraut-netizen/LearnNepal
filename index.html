@@ -76,17 +76,12 @@
         <div class="container" style="position: relative; z-index: 1;">
           <div style="max-width: 700px; margin: 0 auto; text-align: center;">
             <span class="badge animate-fade-up" data-editable="home.hero.badge">NEB Class 11 & 12</span>
-            <h1 id="hero-title" class="animate-fade-up delay-100" style="margin-top: var(--spacing-sm);" data-editable="home.hero.title">Loading...</h1>
-            <p id="hero-desc" class="text-lead animate-fade-up delay-200" data-editable="home.hero.subtitle"></p>
-            <script>
-              // Fetch the data from the JSON file
-              fetch('data/homepage.json')
-                .then(response => response.json())
-                .then(data => {
-                  document.getElementById('hero-title').innerText = data.hero_title;
-                  document.getElementById('hero-desc').innerText = data.hero_description;
-                });
-            </script>
+            <h1 class="animate-fade-up delay-100" style="margin-top: var(--spacing-sm);" data-editable="home.hero.title">
+              Excellence in <span style="color: var(--color-accent);">Education</span> starts with the right notes.
+            </h1>
+            <p class="text-lead animate-fade-up delay-200" data-editable="home.hero.subtitle">
+              Premium, structured, and curriculum-aligned notes for English, Nepali, and Computer Science. Designed for top-performing students in Nepal.
+            </p>
             <div class="hero-actions animate-fade-up delay-300" style="display:flex; gap:1rem; justify-content:center; margin-top: 2rem;">
               <a href="#classes" class="btn btn-primary">Browse Classes</a>
               <a href="pages/class-12/computer/c12_computer_syllabus.html" class="btn btn-outline">Read Syllabus</a>
