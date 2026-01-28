@@ -5,61 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LearnNepal CMS</title>
 
-  <!-- Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <!-- Decap CMS (STABLE CDN) -->
+  <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
 
-  <!-- Netlify Identity Widget -->
+  <!-- Netlify Identity -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
   <style>
-    body { font-family: sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; }
-    #login { text-align:center; }
-    button { padding: 0.5rem 1rem; font-size:1rem; cursor:pointer; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f7f9fc;
+      margin: 0;
+    }
+
+    #login {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button {
+      padding: 12px 22px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
   </style>
 </head>
 <body>
+
+  <!-- LOGIN SCREEN -->
   <div id="login">
     <h2>LearnNepal CMS Login</h2>
-    <button id="login-btn">Login with Netlify Identity</button>
+    <button id="login-btn">Login</button>
   </div>
 
   <script>
-    // Wait for Decap CMS to load
-    function initCMS() {
-      if (typeof CMS !== "undefined") {
-        CMS.init({ config: '/admin/config.yml' });
+    const loginBox = document.getElementById("login");
+    const loginBtn = document.getElementById("login-btn");
+
+    function startCMS() {
+      if (window.CMS) {
+        CMS.init({ config: "/admin/config.yml" });
       } else {
-        console.error("CMS not loaded yet. Retrying in 500ms...");
-        setTimeout(initCMS, 500);
+        console.error("CMS not loaded yet… retrying");
+        setTimeout(startCMS, 300);
       }
     }
 
-    // Initialize Netlify Identity
-    const identity = window.netlifyIdentity;
-    if(identity){
-      identity.init();
+    if (window.netlifyIdentity) {
+      netlifyIdentity.init();
 
-      // When user logs in
-      identity.on('login', user => {
-        document.getElementById('login').style.display = 'none';
-        initCMS(); // Only initialize CMS after login
+      netlifyIdentity.on("login", () => {
+        loginBox.style.display = "none";
+        startCMS();
       });
 
-      identity.on('logout', () => location.reload());
+      netlifyIdentity.on("logout", () => location.reload());
 
-      // Attach login button
-      document.getElementById('login-btn').addEventListener('click', () => {
-        identity.open('login');
+      loginBtn.addEventListener("click", () => {
+        netlifyIdentity.open();
       });
 
-      // If already logged in, init CMS immediately
-      if(identity.currentUser()){
-        document.getElementById('login').style.display = 'none';
-        initCMS();
+      // Already logged in
+      if (netlifyIdentity.currentUser()) {
+        loginBox.style.display = "none";
+        startCMS();
       }
     } else {
-      document.body.innerHTML = "<h2>Netlify Identity not found!</h2>";
+      document.body.innerHTML =
+        "<h2 style='text-align:center;margin-top:40px'>Netlify Identity not loaded</h2>";
     }
   </script>
+
 </body>
 </html>
