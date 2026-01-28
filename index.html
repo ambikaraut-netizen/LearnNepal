@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/layout.css" />
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
   </head>
 
 
@@ -76,11 +78,11 @@
         <div class="container" style="position: relative; z-index: 1;">
           <div style="max-width: 700px; margin: 0 auto; text-align: center;">
             <span class="badge animate-fade-up" data-editable="home.hero.badge">NEB Class 11 & 12</span>
-            <h1 class="animate-fade-up delay-100" style="margin-top: var(--spacing-sm);" data-editable="home.hero.title">
-              Excellence in <span style="color: var(--color-accent);">Education</span> starts with the right notes.
+            <h1 id="home-heading" class="animate-fade-up delay-100" style="margin-top: var(--spacing-sm);" data-editable="home.hero.title">
+              Loading...
             </h1>
-            <p class="text-lead animate-fade-up delay-200" data-editable="home.hero.subtitle">
-              Premium, structured, and curriculum-aligned notes for English, Nepali, and Computer Science. Designed for top-performing students in Nepal.
+            <p id="home-description" class="text-lead animate-fade-up delay-200" data-editable="home.hero.subtitle">
+              Loading...
             </p>
             <div class="hero-actions animate-fade-up delay-300" style="display:flex; gap:1rem; justify-content:center; margin-top: 2rem;">
               <a href="#classes" class="btn btn-primary">Browse Classes</a>
@@ -240,15 +242,40 @@
     <!-- Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
+       if (window.netlifyIdentity) {
+         window.netlifyIdentity.on("init", user => {
+           if (!user) {
+             window.netlifyIdentity.on("login", () => {
+               document.location.href = "/admin/";
+             });
+           }
+         });
+       }
+
+      fetch('content/pages/home.md')
+        .then(response => response.text())
+        .then(text => {
+          // 1. Separate the Frontmatter (YAML) from the Content (Markdown)
+          const parts = text.split('---');
+          // parts[0] is empty, parts[1] is frontmatter, parts[2...] is body
+          const frontmatter = jsyaml.load(parts[1]);
+          // Rejoin body in case "---" appears in the text
+          const markdownBody = parts.slice(2).join('---');
+
+          // 2. Inject Content
+          if (document.getElementById('home-heading')) {
+            document.getElementById('home-heading').innerHTML = frontmatter.heading || frontmatter.title; // Fallback
           }
-        });
-      }
+           if (document.getElementById('home-description')) {
+            document.getElementById('home-description').innerText = frontmatter.description;
+          }
+          
+          // Optional: If you had a body container
+          if (document.getElementById('home-body')) {
+             document.getElementById('home-body').innerHTML = marked.parse(markdownBody);
+          }
+        })
+        .catch(err => console.error("Error loading CMS content:", err));
     </script>
   </body>
 </html>
