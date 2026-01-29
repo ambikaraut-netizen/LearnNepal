@@ -1,6 +1,6 @@
 ---
 title: "Welcome to LearnNepal"
-description: "Learn Nepali language and culture with ease."
+description: "Your gateway to learning Nepali."
 ---
 
-This is the main body text that you can edit from the CMS.
+This is the body content you can edit.
