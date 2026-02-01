@@ -78,11 +78,11 @@
         <div class="container" style="position: relative; z-index: 1;">
           <div style="max-width: 700px; margin: 0 auto; text-align: center;">
             <span class="badge animate-fade-up" data-editable="home.hero.badge">NEB Class 11 & 12</span>
-            <h1 id="cms-title" class="animate-fade-up delay-100" style="margin-top: var(--spacing-sm);">
-              Loading Title...
+            <h1 id="home-heading" class="animate-fade-up delay-100" style="margin-top: var(--spacing-sm);" data-editable="home.hero.title">
+              Loading...
             </h1>
-            <p id="cms-description" class="text-lead animate-fade-up delay-200">
-              Loading Description...
+            <p id="home-description" class="text-lead animate-fade-up delay-200" data-editable="home.hero.subtitle">
+              Loading...
             </p>
             <div class="hero-actions animate-fade-up delay-300" style="display:flex; gap:1rem; justify-content:center; margin-top: 2rem;">
               <a href="#classes" class="btn btn-primary">Browse Classes</a>
@@ -252,14 +252,30 @@
          });
        }
 
-      fetch('/content/pages/home.md')
+      fetch('content/pages/home.md')
         .then(response => response.text())
         .then(text => {
-          // This splits the "Frontmatter" (the title/description) from the file
-          const frontmatter = jsyaml.load(text.split('---')[1]);
-          document.getElementById('cms-title').innerText = frontmatter.title;
-          document.getElementById('cms-description').innerText = frontmatter.description;
-        });
+          // 1. Separate the Frontmatter (YAML) from the Content (Markdown)
+          const parts = text.split('---');
+          // parts[0] is empty, parts[1] is frontmatter, parts[2...] is body
+          const frontmatter = jsyaml.load(parts[1]);
+          // Rejoin body in case "---" appears in the text
+          const markdownBody = parts.slice(2).join('---');
+
+          // 2. Inject Content
+          if (document.getElementById('home-heading')) {
+            document.getElementById('home-heading').innerHTML = frontmatter.heading || frontmatter.title; // Fallback
+          }
+           if (document.getElementById('home-description')) {
+            document.getElementById('home-description').innerText = frontmatter.description;
+          }
+          
+          // Optional: If you had a body container
+          if (document.getElementById('home-body')) {
+             document.getElementById('home-body').innerHTML = marked.parse(markdownBody);
+          }
+        })
+        .catch(err => console.error("Error loading CMS content:", err));
     </script>
   </body>
 </html>
