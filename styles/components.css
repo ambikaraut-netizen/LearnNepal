@@ -2072,8 +2072,8 @@ textarea.input-field {
     .stats-inner { grid-template-columns: 1fr 1fr; }
     .stats-row { padding: var(--space-xl) var(--margin-mobile); }
     .subject-hero { padding: var(--space-lg) var(--margin-mobile) var(--space-xl); }
-    .subject-page-main { padding: var(--space-2xl) var(--margin-mobile); }
-    .qb-main-layout { grid-template-columns: 1fr; padding: var(--space-md) var(--margin-mobile) var(--space-2xl); }
+    .subject-page-main { padding: var(--space-2xl) var(--margin-mobile) calc(4.5rem + env(safe-area-inset-bottom, 0px)); }
+    .qb-main-layout { grid-template-columns: 1fr; padding: var(--space-md) var(--margin-mobile) calc(4.5rem + env(safe-area-inset-bottom, 0px)); }
     .qb-filter-panel { position: static; }
     .form-row { grid-template-columns: 1fr; }
 }

@@ -6,20 +6,20 @@
 
 /* ── Viewer overrides for full-height layout ─────────────── */
 body.viewer-mode {
-    overflow: hidden;
+    overflow: auto;
     padding-top: 0;
 }
 
 body.viewer-mode .header {
-    position: relative;
+    position: sticky;
+    top: 0;
 }
 
 /* ── Workspace Container ─────────────────────────────────── */
 .viewer-workspace {
     display: flex;
-    height: calc(100vh - var(--header-height));
+    min-height: calc(100vh - var(--header-height));
     position: relative;
-    overflow: hidden;
 }
 
 .viewer-workspace.is-fullscreen {
@@ -167,7 +167,8 @@ body.is-presentation-mode .pdf-stage {
     background: #000;
     padding: 0;
     justify-content: center;
-    overflow: hidden; /* Hide scrollbars in presentation mode */
+    overflow: hidden;
+    /* Hide scrollbars in presentation mode */
 }
 
 body.is-presentation-mode .pdf-page-wrapper {
@@ -294,10 +295,22 @@ body.is-presentation-mode .presentation-controls:focus-within {
     pointer-events: auto;
 }
 
-.sidebar-panel::-webkit-scrollbar { width: 3px; }
-.sidebar-panel::-webkit-scrollbar-track { background: transparent; }
-.sidebar-panel::-webkit-scrollbar-thumb { background: var(--accent-muted); border-radius: var(--radius-full); }
-.sidebar-panel::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+.sidebar-panel::-webkit-scrollbar {
+    width: 3px;
+}
+
+.sidebar-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar-panel::-webkit-scrollbar-thumb {
+    background: var(--accent-muted);
+    border-radius: var(--radius-full);
+}
+
+.sidebar-panel::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
 
 /* Thumbnails */
 .thumbnails-container {
@@ -348,12 +361,10 @@ body.is-presentation-mode .presentation-controls:focus-within {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(129, 140, 248, 0.08) 50%,
-        transparent 100%
-    );
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(129, 140, 248, 0.08) 50%,
+            transparent 100%);
     animation: shimmer 2s ease-in-out infinite;
 }
 
@@ -394,9 +405,17 @@ body.is-presentation-mode .presentation-controls:focus-within {
     user-select: none;
 }
 
-.viewer-chapter-summary:hover { background: var(--bg-tertiary); }
-.viewer-chapter-summary::-webkit-details-marker { display: none; }
-.viewer-chapter-summary::marker { content: ''; }
+.viewer-chapter-summary:hover {
+    background: var(--bg-tertiary);
+}
+
+.viewer-chapter-summary::-webkit-details-marker {
+    display: none;
+}
+
+.viewer-chapter-summary::marker {
+    content: '';
+}
 
 .viewer-chapter-chevron {
     transition: transform 0.3s ease;
@@ -524,13 +543,15 @@ body.is-presentation-mode .presentation-controls:focus-within {
     flex-shrink: 0;
 }
 
-.viewer-back-link:hover { opacity: 0.8; }
+.viewer-back-link:hover {
+    opacity: 0.8;
+}
 
-.viewer-sidebar:not(.collapsed) ~ .viewer-main .viewer-title-ribbon {
+.viewer-sidebar:not(.collapsed)~.viewer-main .viewer-title-ribbon {
     padding-left: 1.25rem;
 }
 
-.viewer-sidebar:not(.collapsed) ~ .viewer-main .sidebar-toggle-btn {
+.viewer-sidebar:not(.collapsed)~.viewer-main .sidebar-toggle-btn {
     display: none;
 }
 
@@ -616,8 +637,13 @@ body.is-presentation-mode .presentation-controls:focus-within {
 }
 
 /* Fullscreen button states */
-.toolbar-btn.is-fullscreen .icon-expand { display: none; }
-.toolbar-btn.is-fullscreen .icon-compress { display: block !important; }
+.toolbar-btn.is-fullscreen .icon-expand {
+    display: none;
+}
+
+.toolbar-btn.is-fullscreen .icon-compress {
+    display: block !important;
+}
 
 /* Page navigation input */
 .toolbar-page-nav {
@@ -696,8 +722,15 @@ body.is-presentation-mode .presentation-controls:focus-within {
 }
 
 @keyframes searchBarSlideIn {
-    from { opacity: 0; transform: translateY(-4px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .search-bar-inner {
@@ -836,13 +869,27 @@ body.is-presentation-mode .presentation-controls:focus-within {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .pdf-stage { scroll-behavior: auto; }
+    .pdf-stage {
+        scroll-behavior: auto;
+    }
 }
 
-.pdf-stage::-webkit-scrollbar { width: 6px; }
-.pdf-stage::-webkit-scrollbar-track { background: var(--bg-secondary); }
-.pdf-stage::-webkit-scrollbar-thumb { background: var(--accent-muted); border-radius: var(--radius-full); }
-.pdf-stage::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+.pdf-stage::-webkit-scrollbar {
+    width: 6px;
+}
+
+.pdf-stage::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+.pdf-stage::-webkit-scrollbar-thumb {
+    background: var(--accent-muted);
+    border-radius: var(--radius-full);
+}
+
+.pdf-stage::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
 
 /* ── Page Wrapper (Virtual Viewport Placeholder) ─────────── */
 .pdf-page-wrapper {
@@ -881,31 +928,32 @@ body.is-presentation-mode .presentation-controls:focus-within {
 .pdf-page-skeleton-shimmer {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(129, 140, 248, 0.04) 40%,
-        rgba(129, 140, 248, 0.08) 50%,
-        rgba(129, 140, 248, 0.04) 60%,
-        transparent 100%
-    );
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(129, 140, 248, 0.04) 40%,
+            rgba(129, 140, 248, 0.08) 50%,
+            rgba(129, 140, 248, 0.04) 60%,
+            transparent 100%);
     animation: shimmer 2s ease-in-out infinite;
 }
 
 [data-theme="light"] .pdf-page-skeleton-shimmer {
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(99, 102, 241, 0.03) 40%,
-        rgba(99, 102, 241, 0.06) 50%,
-        rgba(99, 102, 241, 0.03) 60%,
-        transparent 100%
-    );
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(99, 102, 241, 0.03) 40%,
+            rgba(99, 102, 241, 0.06) 50%,
+            rgba(99, 102, 241, 0.03) 60%,
+            transparent 100%);
 }
 
 @keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 .pdf-page-skeleton-label {
@@ -985,13 +1033,26 @@ body.is-presentation-mode .presentation-controls:focus-within {
 }
 
 @keyframes glow-pulse {
-    0%, 100% { transform: scale(0.97); box-shadow: 0 0 20px var(--accent-glow); }
-    50% { transform: scale(1.03); box-shadow: 0 0 40px var(--accent-glow); }
+
+    0%,
+    100% {
+        transform: scale(0.97);
+        box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 40px var(--accent-glow);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
     @keyframes glow-pulse {
-        0%, 100% { transform: none; }
+
+        0%,
+        100% {
+            transform: none;
+        }
     }
 }
 
@@ -1072,12 +1133,10 @@ body.is-presentation-mode .presentation-controls:focus-within {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(129, 140, 248, 0.06) 50%,
-        transparent 100%
-    );
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(129, 140, 248, 0.06) 50%,
+            transparent 100%);
     animation: shimmer 1.8s ease-in-out infinite;
 }
 
@@ -1088,15 +1147,36 @@ body.is-presentation-mode .presentation-controls:focus-within {
     animation: pulse-loading 1.5s ease-in-out infinite;
 }
 
-.viewer-loading-line:nth-child(1) { animation-delay: 0s; }
-.viewer-loading-line:nth-child(2) { animation-delay: 0.15s; }
-.viewer-loading-line:nth-child(3) { animation-delay: 0.3s; }
-.viewer-loading-line:nth-child(4) { animation-delay: 0.45s; }
-.viewer-loading-line:nth-child(5) { animation-delay: 0.6s; }
+.viewer-loading-line:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.viewer-loading-line:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.viewer-loading-line:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.viewer-loading-line:nth-child(4) {
+    animation-delay: 0.45s;
+}
+
+.viewer-loading-line:nth-child(5) {
+    animation-delay: 0.6s;
+}
 
 @keyframes pulse-loading {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.8; }
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
 }
 
 .viewer-loading-status {
@@ -1358,22 +1438,42 @@ body.viewer-sidebar-open .viewer-sidebar-overlay {
         transform: translateX(0);
     }
 
-    .viewer-sidebar:not(.collapsed) ~ .viewer-main .sidebar-toggle-btn {
+    .viewer-sidebar:not(.collapsed)~.viewer-main .sidebar-toggle-btn {
         display: flex;
     }
 
-    .viewer-sidebar:not(.collapsed) ~ .viewer-main .viewer-title-ribbon {
+    .viewer-sidebar:not(.collapsed)~.viewer-main .viewer-title-ribbon {
         padding-left: 3.75rem;
     }
 
-    .viewer-title-ribbon h1 { font-size: 0.85rem; }
-    .pdf-stage { padding: 1rem; gap: 0.75rem; }
+    .viewer-title-ribbon h1 {
+        font-size: 0.85rem;
+    }
+
+    .pdf-stage {
+        padding: 1rem;
+        gap: 0.75rem;
+    }
 
     /* Toolbar: compact on mobile */
-    .toolbar-btn-subtle { display: none; }
-    .toolbar-page-nav { font-size: 0.72rem; }
-    .toolbar-page-input { width: 32px; height: 26px; font-size: 0.72rem; }
-    .toolbar-zoom-level { min-width: 36px; font-size: 0.68rem; }
+    .toolbar-btn-subtle {
+        display: none;
+    }
+
+    .toolbar-page-nav {
+        font-size: 0.72rem;
+    }
+
+    .toolbar-page-input {
+        width: 32px;
+        height: 26px;
+        font-size: 0.72rem;
+    }
+
+    .toolbar-zoom-level {
+        min-width: 36px;
+        font-size: 0.68rem;
+    }
 
     .viewer-workspace.is-fullscreen .viewer-sidebar {
         top: 0;
@@ -1381,9 +1481,18 @@ body.viewer-sidebar-open .viewer-sidebar-overlay {
 }
 
 @media (max-width: 600px) {
-    .viewer-sidebar { width: 100%; min-width: 100%; }
-    .viewer-title-ribbon { padding: 0.6rem 0.75rem 0.6rem 3.5rem; }
-    .viewer-back-link { display: none; }
+    .viewer-sidebar {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .viewer-title-ribbon {
+        padding: 0.6rem 0.75rem 0.6rem 3.5rem;
+    }
+
+    .viewer-back-link {
+        display: none;
+    }
 
     /* Stack toolbar groups */
     .viewer-toolbar {
@@ -1411,12 +1520,18 @@ body.viewer-sidebar-open .viewer-sidebar-overlay {
         padding: 0.25rem 0.4rem;
     }
 
-    .search-bar-option { display: none; }
-    .search-bar-count { font-size: 0.68rem; }
+    .search-bar-option {
+        display: none;
+    }
+
+    .search-bar-count {
+        font-size: 0.68rem;
+    }
 }
 
 /* ── Print Styles ────────────────────────────────────────── */
 @media print {
+
     .viewer-sidebar,
     .viewer-toolbar,
     .viewer-title-ribbon,
@@ -1450,6 +1565,11 @@ body.viewer-sidebar-open .viewer-sidebar-overlay {
         max-width: none;
     }
 
-    .pdf-page-skeleton { display: none; }
-    .pdf-text-layer { display: none; }
+    .pdf-page-skeleton {
+        display: none;
+    }
+
+    .pdf-text-layer {
+        display: none;
+    }
 }

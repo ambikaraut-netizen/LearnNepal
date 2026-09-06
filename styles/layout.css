@@ -3,14 +3,13 @@
    ═══════════════════════════════════════════════════════════ */
 
 main {
-  padding-top: var(--header-height);
+  padding-bottom: max(var(--space-3xl), calc(4.5rem + env(safe-area-inset-bottom, 0px)));
 }
 
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   height: var(--header-height);
   z-index: var(--z-header);
   background: var(--bg-glass);
@@ -90,7 +89,7 @@ body.nav-open .header {
 .nav-link.active::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -4px;
   left: 0;
   right: 0;
   height: 2.5px;
@@ -120,8 +119,14 @@ body.nav-open .header {
 }
 
 .btn-search kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.7rem;
-  padding: 0.15rem 0.4rem;
+  line-height: 1;
+  padding: 0.15rem 0.45rem;
+  min-width: 18px;
+  height: 18px;
   background: var(--surface-container-lowest);
   border: 1px solid var(--outline-variant);
   border-radius: var(--radius-xs);
