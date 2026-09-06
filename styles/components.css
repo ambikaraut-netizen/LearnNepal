@@ -1993,7 +1993,25 @@ textarea.input-field {
     border-bottom: 1px solid var(--outline-variant);
     padding: var(--space-xl) var(--margin-desktop) var(--space-2xl);
 }
-.subject-hero-inner { max-width: var(--max-width); margin: 0 auto; }
+.subject-hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+}
+@media (min-width: 1024px) {
+    .subject-hero-inner {
+        grid-template-columns: 1.6fr 1fr;
+        gap: var(--space-2xl);
+    }
+}
+.subject-hero-inner .overview-card {
+    max-width: 380px;
+    width: 100%;
+    justify-self: end;
+}
 .subject-page-main { max-width: var(--max-width); margin: 0 auto; padding: var(--space-3xl) var(--margin-desktop); }
 
 /* ── QBank Main Page ────────────────────────────────────────── */

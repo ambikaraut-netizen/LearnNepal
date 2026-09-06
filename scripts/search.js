@@ -12,6 +12,7 @@
         
         // Grade 10
         { name: "Class 10 Optional Mathematics", desc: "Functions, Polynomials, Linear Programming, Quadratic Equations, Surds, Matrices, Trigonometry, Coordinate Geometry, Vectors, Transformations, Statistics, and Continuity solutions", url: "pages/class-10/opt-math/index.html", cat: "Class 10", icon: "📐" },
+        { name: "Class 10 Social Studies (सामाजिक अध्ययन)", desc: "हामी र हाम्रो समाज, विकास र पूर्वाधार, सामाजिक मूल्य, नागरिक चेतना, हाम्रो पृथ्वी, हाम्रो विगत, आर्थिक क्रियाकलाप, अन्तर्राष्ट्रिय सम्बन्ध र जनसङ्ख्या व्यवस्थापन", url: "pages/class-10/social/index.html", cat: "Class 10", icon: "🌏" },
 
         // Grade 11
         { name: "Class 11 English", desc: "Vocabulary, summaries, and exercise guides", url: "pages/class-11/english.html", cat: "Class 11", icon: "📘" },
