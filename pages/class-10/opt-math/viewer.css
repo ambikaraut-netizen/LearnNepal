@@ -669,6 +669,7 @@ body.is-presentation-mode .presentation-controls:focus-within {
     outline: none;
     transition: border-color var(--duration-fast);
     -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 .toolbar-page-input::-webkit-outer-spin-button,

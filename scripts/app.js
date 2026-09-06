@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initDropdowns();
     initSidebarAccordion();
-    initMobileSidebar();
+    initSidebarToggle();
     initPageTransitions();
 });
 
@@ -192,35 +192,148 @@ function initDropdowns() {
     });
 }
 
-function initMobileSidebar() {
-    const toggle = document.querySelector('.mobile-sidebar-toggle');
+function initSidebarToggle() {
+    const docsLayout = document.querySelector('.docs-layout');
     const sidebar = document.querySelector('.sidebar');
-    if (!toggle || !sidebar) return;
-    
+    const docsContent = document.querySelector('.docs-content');
+    if (!docsLayout || !sidebar) return;
+
+    // Create backdrop overlay for mobile if not already present
     let overlay = document.querySelector('.sidebar-overlay');
     if (!overlay) {
         overlay = document.createElement('div');
         overlay.className = 'sidebar-overlay';
+        overlay.setAttribute('aria-hidden', 'true');
         document.body.appendChild(overlay);
     }
 
-    toggle.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
-        overlay.classList.toggle('active');
-    });
-    
-    overlay.addEventListener('click', () => {
-        sidebar.classList.remove('active');
-        overlay.classList.remove('active');
-    });
-    
-    sidebar.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (link.getAttribute('href') !== '#' && !link.classList.contains('sidebar-group-title')) {
-                sidebar.classList.remove('active');
-                overlay.classList.remove('active');
+    // Ensure close button exists in sidebar
+    let closeBtn = sidebar.querySelector('.sidebar-close-btn');
+    if (!closeBtn) {
+        closeBtn = document.createElement('button');
+        closeBtn.className = 'sidebar-close-btn';
+        closeBtn.setAttribute('aria-label', 'Close sidebar');
+        closeBtn.setAttribute('title', 'Close sidebar');
+        closeBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px;">close</span>';
+        
+        const titleRow = sidebar.querySelector('.sidebar-title');
+        if (titleRow) {
+            let headerRow = sidebar.querySelector('.sidebar-header-row');
+            if (!headerRow) {
+                headerRow = document.createElement('div');
+                headerRow.className = 'sidebar-header-row';
+                titleRow.parentNode.insertBefore(headerRow, titleRow);
+                headerRow.appendChild(titleRow);
+            }
+            headerRow.appendChild(closeBtn);
+        } else {
+            sidebar.insertBefore(closeBtn, sidebar.firstChild);
+        }
+    }
+
+    // Ensure sidebar toggle button exists in docs-content
+    let toggleBtn = document.querySelector('.sidebar-toggle-btn');
+    if (!toggleBtn && docsContent) {
+        toggleBtn = document.createElement('button');
+        toggleBtn.className = 'sidebar-toggle-btn';
+        toggleBtn.id = 'sidebar-toggle-btn';
+        toggleBtn.setAttribute('aria-label', 'Toggle chapters sidebar');
+        toggleBtn.setAttribute('title', 'Toggle chapters sidebar');
+        toggleBtn.innerHTML = '<span class="material-symbols-outlined">menu_open</span><span>Chapters</span>';
+        
+        if (docsContent.firstElementChild) {
+            docsContent.firstElementChild.insertBefore(toggleBtn, docsContent.firstElementChild.firstChild);
+        } else {
+            docsContent.insertBefore(toggleBtn, docsContent.firstChild);
+        }
+    }
+
+    // Sync button UI with current state
+    function updateButtonState(isClosed) {
+        const btns = document.querySelectorAll('.sidebar-toggle-btn, .mobile-sidebar-toggle');
+        btns.forEach(btn => {
+            const icon = btn.querySelector('.material-symbols-outlined');
+            const label = btn.querySelector('span:not(.material-symbols-outlined)') || btn;
+            if (isClosed) {
+                btn.classList.add('is-collapsed');
+                if (icon) icon.textContent = 'view_sidebar';
+                if (label && label !== btn) label.textContent = 'Show Chapters';
+            } else {
+                btn.classList.remove('is-collapsed');
+                if (icon) icon.textContent = 'menu_open';
+                if (label && label !== btn) label.textContent = 'Hide Chapters';
             }
         });
+    }
+
+    // Restore desktop collapsed preference from localStorage
+    const savedState = localStorage.getItem('learnnepal_sidebar_collapsed');
+    if (window.innerWidth > 1024 && savedState === 'true') {
+        docsLayout.classList.add('sidebar-collapsed');
+        updateButtonState(true);
+    } else {
+        updateButtonState(false);
+    }
+
+    function toggleSidebar() {
+        if (window.innerWidth <= 1024) {
+            // Mobile: off-canvas drawer
+            const isOpen = sidebar.classList.toggle('active');
+            overlay.classList.toggle('active', isOpen);
+            document.body.classList.toggle('sidebar-open', isOpen);
+            updateButtonState(!isOpen);
+        } else {
+            // Desktop: collapse / expand grid column
+            const isNowCollapsed = docsLayout.classList.toggle('sidebar-collapsed');
+            localStorage.setItem('learnnepal_sidebar_collapsed', isNowCollapsed ? 'true' : 'false');
+            updateButtonState(isNowCollapsed);
+        }
+    }
+
+    function closeSidebar() {
+        if (window.innerWidth <= 1024) {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.classList.remove('sidebar-open');
+            updateButtonState(true);
+        } else {
+            docsLayout.classList.add('sidebar-collapsed');
+            localStorage.setItem('learnnepal_sidebar_collapsed', 'true');
+            updateButtonState(true);
+        }
+    }
+
+    // Attach listeners to all toggle buttons (custom + mobile toggle)
+    document.querySelectorAll('.sidebar-toggle-btn, .mobile-sidebar-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleSidebar();
+        });
+    });
+
+    closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        closeSidebar();
+    });
+
+    overlay.addEventListener('click', closeSidebar);
+
+    // Close mobile drawer when clicking a chapter link
+    sidebar.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 1024 && link.getAttribute('href') !== '#' && !link.classList.contains('sidebar-group-title')) {
+                closeSidebar();
+            }
+        });
+    });
+
+    // Keyboard support: Escape closes mobile sidebar
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+            closeSidebar();
+        }
     });
 }
 
