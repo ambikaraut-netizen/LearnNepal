@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Class 12 English Syllabus &amp; Study Guide | LearnNepal</title>
-    <meta name="description" content="Complete NEB Grade 12 English Curriculum — Section 1: Language Development (Units 1-20), Section 2: Literature (Short Stories, Poems, Essays, Plays), and Solved Question Bank." />
+    <meta name="description"
+        content="Complete NEB Grade 12 English Curriculum — Section 1: Language Development (Units 1-20), Section 2: Literature (Short Stories, Poems, Essays, Plays), and Solved Question Bank." />
 
     <link rel="icon" href="../../../assets/images/logo.png" type="image/png" />
     <link rel="apple-touch-icon" href="../../../assets/images/logo.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Mukta:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
 
     <script src="../../../scripts/theme.js"></script>
     <link rel="stylesheet" href="../../../styles/main.css" />
@@ -23,6 +28,7 @@
             border-bottom: 1px solid var(--border);
             padding: 3.5rem 0 2rem;
         }
+
         .overview-card {
             background: var(--bg-elevated);
             border: 1px solid var(--border);
@@ -30,6 +36,7 @@
             padding: 1.5rem;
             box-shadow: var(--shadow-sm);
         }
+
         .overview-item {
             display: flex;
             align-items: center;
@@ -39,9 +46,11 @@
             border-radius: var(--radius-sm);
             margin-bottom: 0.6rem;
         }
+
         .overview-item:last-child {
             margin-bottom: 0;
         }
+
         .section-accordion {
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
@@ -50,9 +59,11 @@
             overflow: hidden;
             transition: border-color 0.25s ease;
         }
+
         .section-accordion:hover {
             border-color: var(--accent-border);
         }
+
         .accordion-header {
             padding: 1.2rem 1.4rem;
             display: flex;
@@ -63,9 +74,11 @@
             user-select: none;
             transition: background 0.2s ease;
         }
+
         .accordion-header:hover {
             background: var(--surface-container);
         }
+
         .accordion-icon-badge {
             width: 42px;
             height: 42px;
@@ -79,27 +92,33 @@
             font-size: 1.1rem;
             flex-shrink: 0;
         }
+
         .accordion-arrow {
             transition: transform 0.3s var(--ease-spring);
             color: var(--text-tertiary);
         }
+
         .section-accordion.open .accordion-arrow {
             transform: rotate(180deg);
         }
+
         .accordion-body {
             display: none;
             padding: 1.25rem 1.4rem;
             border-top: 1px solid var(--border);
             background: var(--bg-primary);
         }
+
         .section-accordion.open .accordion-body {
             display: block;
         }
+
         .unit-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 0.85rem;
         }
+
         .unit-card {
             display: flex;
             align-items: center;
@@ -110,17 +129,20 @@
             border: 1px solid var(--border);
             transition: all 0.2s ease;
         }
+
         .unit-card:hover {
             border-color: var(--primary);
             background: var(--bg-elevated);
             transform: translateX(3px);
         }
+
         .unit-info {
             display: flex;
             flex-direction: column;
             gap: 0.15rem;
             min-width: 0;
         }
+
         .unit-num {
             font-size: 0.68rem;
             font-weight: 800;
@@ -128,6 +150,7 @@
             letter-spacing: 0.08em;
             color: var(--primary);
         }
+
         .unit-title {
             font-size: 0.92rem;
             font-weight: 700;
@@ -136,11 +159,13 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
         .unit-author {
             font-size: 0.78rem;
             color: var(--text-tertiary);
             font-style: italic;
         }
+
         .sub-unit-header {
             display: flex;
             align-items: center;
@@ -152,13 +177,16 @@
             font-weight: 800;
             color: var(--text-primary);
         }
+
         .sub-unit-header:first-child {
             margin-top: 0;
         }
+
         .sub-unit-header .material-symbols-outlined {
             color: var(--primary);
             font-size: 1.2rem;
         }
+
         .btn-action-sm {
             display: inline-flex;
             align-items: center;
@@ -174,14 +202,17 @@
             transition: all 0.2s ease;
             white-space: nowrap;
         }
+
         .btn-action-sm:hover {
             background: var(--accent);
             color: var(--on-primary, #fff);
         }
     </style>
 </head>
+
 <body>
-    <div id="reading-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Reading progress"></div>
+    <div id="reading-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+        aria-label="Reading progress"></div>
 
     <!-- ═══ HEADER ═══ -->
     <header class="header" id="site-header">
@@ -204,7 +235,11 @@
                 <a href="../../../about.html" class="nav-link">About</a>
 
                 <button class="search-trigger btn-search" aria-label="Search">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.3-4.3" />
+                    </svg>
                     <span>Search</span>
                     <kbd>Ctrl K</kbd>
                 </button>
@@ -224,17 +259,22 @@
                     <span style="color:var(--text-primary);font-weight:600">Class 12 English</span>
                 </nav>
 
-                <div class="grid grid-2" style="grid-template-columns: 1.4fr 1fr; align-items: center; gap: 2rem; margin-top: 1rem;">
+                <div class="grid grid-2"
+                    style="grid-template-columns: 1.4fr 1fr; align-items: center; gap: 2rem; margin-top: 1rem;">
                     <div>
                         <span class="qb-badge animate-fade-up delay-100">
                             <span class="material-symbols-outlined" style="font-size:16px">auto_stories</span>
                             NEB Grade XII · Compulsory English
                         </span>
-                        <h1 class="animate-fade-up delay-200" style="font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 800; margin: 0.6rem 0 0.5rem; color: var(--text-primary);">
+                        <h1 class="animate-fade-up delay-200"
+                            style="font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 800; margin: 0.6rem 0 0.5rem; color: var(--text-primary);">
                             Class 12 English Syllabus
                         </h1>
-                        <p class="animate-fade-up delay-300" style="font-size: 0.98rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.25rem;">
-                            Complete syllabus breakdown covering <strong>Section 1: Language Development</strong> (20 Units) and <strong>Section 2: Literature</strong> (Short Stories, Poems, Essays, Plays) with past board questions and model answers.
+                        <p class="animate-fade-up delay-300"
+                            style="font-size: 0.98rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.25rem;">
+                            Complete syllabus breakdown covering <strong>Section 1: Language Development</strong> (20
+                            Units) and <strong>Section 2: Literature</strong> (Short Stories, Poems, Essays, Plays) with
+                            past board questions and model answers.
                         </p>
                         <div class="animate-fade-up delay-400" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
                             <a href="../question-bank/english/index.html" class="btn btn-primary btn-sm">
@@ -250,34 +290,40 @@
 
                     <!-- Subject Overview Card -->
                     <div class="overview-card animate-fade-up delay-300">
-                        <h3 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-primary);">
+                        <h3
+                            style="font-size: 1.05rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-primary);">
                             Course Structure &amp; Assessment
                         </h3>
                         <div class="overview-item">
                             <div style="display:flex;align-items:center;gap:0.6rem">
                                 <span class="material-symbols-outlined" style="color:var(--primary)">menu_book</span>
-                                <span style="font-size:0.86rem;font-weight:600;color:var(--text-secondary)">Theory Exam</span>
+                                <span style="font-size:0.86rem;font-weight:600;color:var(--text-secondary)">Theory
+                                    Exam</span>
                             </div>
                             <strong style="font-size:0.92rem;color:var(--text-primary)">75 Marks</strong>
                         </div>
                         <div class="overview-item">
                             <div style="display:flex;align-items:center;gap:0.6rem">
-                                <span class="material-symbols-outlined" style="color:var(--color-success)">assignment_turned_in</span>
-                                <span style="font-size:0.86rem;font-weight:600;color:var(--text-secondary)">Internal Assessment</span>
+                                <span class="material-symbols-outlined"
+                                    style="color:var(--color-success)">assignment_turned_in</span>
+                                <span style="font-size:0.86rem;font-weight:600;color:var(--text-secondary)">Internal
+                                    Assessment</span>
                             </div>
                             <strong style="font-size:0.92rem;color:var(--text-primary)">25 Marks</strong>
                         </div>
                         <div class="overview-item">
                             <div style="display:flex;align-items:center;gap:0.6rem">
                                 <span class="material-symbols-outlined" style="color:var(--accent)">layers</span>
-                                <span style="font-size:0.86rem;font-weight:600;color:var(--text-secondary)">Total Curriculum</span>
+                                <span style="font-size:0.86rem;font-weight:600;color:var(--text-secondary)">Total
+                                    Curriculum</span>
                             </div>
                             <strong style="font-size:0.92rem;color:var(--text-primary)">20 Units + 20 Lit Works</strong>
                         </div>
                         <div class="overview-item">
                             <div style="display:flex;align-items:center;gap:0.6rem">
                                 <span class="material-symbols-outlined" style="color:var(--qb-gold)">timer</span>
-                                <span style="font-size:0.86rem;font-weight:600;color:var(--text-secondary)">Exam Duration</span>
+                                <span style="font-size:0.86rem;font-weight:600;color:var(--text-secondary)">Exam
+                                    Duration</span>
                             </div>
                             <strong style="font-size:0.92rem;color:var(--text-primary)">3 Hours</strong>
                         </div>
@@ -289,9 +335,11 @@
         <!-- ═══ CURRICULUM BREAKDOWN ═══ -->
         <section class="section" style="padding-top:2.5rem">
             <div class="container">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                <div
+                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
                     <div>
-                        <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--text-primary); margin: 0 0 0.25rem;">
+                        <h2
+                            style="font-size: 1.45rem; font-weight: 800; color: var(--text-primary); margin: 0 0 0.25rem;">
                             Table of Contents
                         </h2>
                         <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">
@@ -316,7 +364,8 @@
                         <div style="display:flex;align-items:center;gap:0.9rem">
                             <div class="accordion-icon-badge">1</div>
                             <div>
-                                <h3 style="font-size:1.08rem;font-weight:800;color:var(--text-primary);margin:0 0 0.15rem">
+                                <h3
+                                    style="font-size:1.08rem;font-weight:800;color:var(--text-primary);margin:0 0 0.15rem">
                                     Section One: Language Development
                                 </h3>
                                 <p style="font-size:0.82rem;color:var(--text-secondary);margin:0">
@@ -476,9 +525,11 @@
                 <div class="section-accordion open">
                     <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
                         <div style="display:flex;align-items:center;gap:0.9rem">
-                            <div class="accordion-icon-badge" style="background:rgba(236,72,153,0.12);color:#ec4899">2</div>
+                            <div class="accordion-icon-badge" style="background:rgba(236,72,153,0.12);color:#ec4899">2
+                            </div>
                             <div>
-                                <h3 style="font-size:1.08rem;font-weight:800;color:var(--text-primary);margin:0 0 0.15rem">
+                                <h3
+                                    style="font-size:1.08rem;font-weight:800;color:var(--text-primary);margin:0 0 0.15rem">
                                     Section Two: Literature
                                 </h3>
                                 <p style="font-size:0.82rem;color:var(--text-secondary);margin:0">
@@ -510,7 +561,7 @@
                                     <span class="unit-title">A Respectable Woman</span>
                                     <span class="unit-author">Kate Chopin</span>
                                 </div>
-                                <span class="badge" style="font-size:0.65rem">Literature</span>
+                                <a href="c12_english_story_2.html" class="btn-action-sm">View</a>
                             </div>
                             <div class="unit-card">
                                 <div class="unit-info">
@@ -693,7 +744,8 @@
                                 <span class="material-symbols-outlined" style="font-size:22px">quiz</span>
                             </div>
                             <div>
-                                <h3 style="font-size:1.08rem;font-weight:800;color:var(--text-primary);margin:0 0 0.15rem">
+                                <h3
+                                    style="font-size:1.08rem;font-weight:800;color:var(--text-primary);margin:0 0 0.15rem">
                                     Exam Structure &amp; Solved Question Bank
                                 </h3>
                                 <p style="font-size:0.82rem;color:var(--text-secondary);margin:0">
@@ -711,7 +763,8 @@
                                     <span class="unit-title">Comprehension Passages</span>
                                     <span class="unit-author">Fill in blanks, MCQ &amp; Short Qs</span>
                                 </div>
-                                <a href="../question-bank/english/index.html?group=section-A" class="btn-action-sm">Practice</a>
+                                <a href="../question-bank/english/index.html?group=section-A"
+                                    class="btn-action-sm">Practice</a>
                             </div>
                             <div class="unit-card">
                                 <div class="unit-info">
@@ -719,7 +772,8 @@
                                     <span class="unit-title">Literature Questions</span>
                                     <span class="unit-author">Short &amp; Long Critical Analysis</span>
                                 </div>
-                                <a href="../question-bank/english/index.html?group=section-B" class="btn-action-sm">Practice</a>
+                                <a href="../question-bank/english/index.html?group=section-B"
+                                    class="btn-action-sm">Practice</a>
                             </div>
                             <div class="unit-card">
                                 <div class="unit-info">
@@ -727,7 +781,8 @@
                                     <span class="unit-title">Writing &amp; Free Composition</span>
                                     <span class="unit-author">Letters, Essays, Charts &amp; Reviews</span>
                                 </div>
-                                <a href="../question-bank/english/index.html?group=section-C" class="btn-action-sm">Practice</a>
+                                <a href="../question-bank/english/index.html?group=section-C"
+                                    class="btn-action-sm">Practice</a>
                             </div>
                             <div class="unit-card">
                                 <div class="unit-info">
@@ -735,7 +790,8 @@
                                     <span class="unit-title">Grammar Exercises</span>
                                     <span class="unit-author">Voice, Speech, Tenses &amp; Clauses</span>
                                 </div>
-                                <a href="../question-bank/english/index.html?group=section-D" class="btn-action-sm">Practice</a>
+                                <a href="../question-bank/english/index.html?group=section-D"
+                                    class="btn-action-sm">Practice</a>
                             </div>
                             <div class="unit-card">
                                 <div class="unit-info">
@@ -743,15 +799,18 @@
                                     <span class="unit-title">Vocabulary &amp; Sounds</span>
                                     <span class="unit-author">Phonetics, Dictionary &amp; Affixes</span>
                                 </div>
-                                <a href="../question-bank/english/index.html?group=section-E" class="btn-action-sm">Practice</a>
+                                <a href="../question-bank/english/index.html?group=section-E"
+                                    class="btn-action-sm">Practice</a>
                             </div>
-                            <div class="unit-card" style="background:var(--accent-muted);border-color:var(--accent-border)">
+                            <div class="unit-card"
+                                style="background:var(--accent-muted);border-color:var(--accent-border)">
                                 <div class="unit-info">
                                     <span class="unit-num" style="color:var(--accent)">Full Board Paper</span>
                                     <span class="unit-title" style="color:var(--accent)">2083 Model Solutions</span>
                                     <span class="unit-author">Complete solved board exam</span>
                                 </div>
-                                <a href="c12_english_2083_solutions.html" class="btn btn-primary btn-sm" style="padding:0.35rem 0.85rem;font-size:0.75rem">View All</a>
+                                <a href="c12_english_2083_solutions.html" class="btn btn-primary btn-sm"
+                                    style="padding:0.35rem 0.85rem;font-size:0.75rem">View All</a>
                             </div>
                         </div>
                     </div>
@@ -771,7 +830,8 @@
                         <img src="../../../assets/images/logo.png" alt="LearnNepal">
                         LearnNepal
                     </a>
-                    <p>Empowering NEB students with high-quality, structured, and accessible digital study notes — completely free.</p>
+                    <p>Empowering NEB students with high-quality, structured, and accessible digital study notes —
+                        completely free.</p>
                 </div>
 
                 <div class="footer-col">
@@ -812,32 +872,33 @@
     <script src="../../../scripts/search.js"></script>
     <script src="../../../scripts/transitions.js"></script>
     <script>
-    (function () {
-        // Reading progress bar
-        var bar = document.getElementById('reading-progress');
-        if (bar) {
-            window.addEventListener('scroll', function() {
-                var el = document.documentElement;
-                bar.style.width = Math.min(el.scrollTop / (el.scrollHeight - el.clientHeight) * 100, 100) + '%';
-            }, { passive: true });
-        }
+        (function () {
+            // Reading progress bar
+            var bar = document.getElementById('reading-progress');
+            if (bar) {
+                window.addEventListener('scroll', function () {
+                    var el = document.documentElement;
+                    bar.style.width = Math.min(el.scrollTop / (el.scrollHeight - el.clientHeight) * 100, 100) + '%';
+                }, { passive: true });
+            }
 
-        // Expand / Collapse All Controls
-        var expandBtn = document.getElementById('btn-expand-all');
-        var collapseBtn = document.getElementById('btn-collapse-all');
-        var accordions = document.querySelectorAll('.section-accordion');
+            // Expand / Collapse All Controls
+            var expandBtn = document.getElementById('btn-expand-all');
+            var collapseBtn = document.getElementById('btn-collapse-all');
+            var accordions = document.querySelectorAll('.section-accordion');
 
-        if (expandBtn) {
-            expandBtn.addEventListener('click', function() {
-                accordions.forEach(function(acc) { acc.classList.add('open'); });
-            });
-        }
-        if (collapseBtn) {
-            collapseBtn.addEventListener('click', function() {
-                accordions.forEach(function(acc) { acc.classList.remove('open'); });
-            });
-        }
-    })();
+            if (expandBtn) {
+                expandBtn.addEventListener('click', function () {
+                    accordions.forEach(function (acc) { acc.classList.add('open'); });
+                });
+            }
+            if (collapseBtn) {
+                collapseBtn.addEventListener('click', function () {
+                    accordions.forEach(function (acc) { acc.classList.remove('open'); });
+                });
+            }
+        })();
     </script>
 </body>
+
 </html>
